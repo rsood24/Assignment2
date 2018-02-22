@@ -18,4 +18,16 @@ app.post('/post', function (req, res) {
     res.send(req.body);
 });
 
+app.get('/get', function (req, res) {
+
+});
+
+app.put('/put', function (req, res) {
+
+});
+
+app.delete('/delete', function (req, res) {
+
+});
+
 http.createServer(app).listen(process.env.PORT || 8080);

@@ -3,7 +3,7 @@ var http = require('http');
 var bodyParser = require('body-parser');
 var passport = require('passport');
 var authController = require('./auth');
-db = require('./db')(); //global hack
+db = require('./db')(); //global hack33.18
 
 var app = express();
 //app.use(bodyParser.json());
@@ -13,8 +13,9 @@ app.use(passport.initialize());
 
 var router = express.Router();
 
-app.post('/post', function (req, res) {
+router.post('/post', function (req, res) {
             console.log(req.body);
+            console.log("in post request");
             res = res.status(200);
             if (req.get('Content-Type')) {
                 console.log("Content-Type: " + req.get('Content-Type'));

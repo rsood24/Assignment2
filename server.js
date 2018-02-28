@@ -13,7 +13,7 @@ app.use(passport.initialize());
 
 var router = express.Router();
 
-router.post('/post', function (req, res) {
+router.route('/post').post(function (req, res) {
             console.log(req.body);
             console.log("in post request");
             res = res.status(200);

@@ -21,7 +21,7 @@ router.route('/post').post(function (req, res) {
                 console.log("Content-Type: " + req.get('Content-Type'));
                 res = res.type(req.get('Content-Type'));
             }
-            res.send(req.body);
+            res.json({Headers: req.query, Body: req.body});
         }
     );
 

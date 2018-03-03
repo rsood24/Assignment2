@@ -1,0 +1,120 @@
+{
+	"info": {
+		"name": "HW2",
+		"_postman_id": "7a6e52f6-51c8-1c09-cbab-6c36d52a638c",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "https://rsoodecho.herokuapp.com/post?q={{$timestamp}}",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "testuser",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "cu",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\":\"Ritesh\",\n\t\"ID\":\"1234\"\n}"
+				},
+				"url": {
+					"raw": "https://rsoodecho.herokuapp.com/post?q={{$timestamp}}",
+					"protocol": "https",
+					"host": [
+						"rsoodecho",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"post"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "{{$timestamp}}",
+							"equals": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "https://rsoodecho.herokuapp.com/put?q={{$timestamp}}",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "https://rsoodecho.herokuapp.com/put?q={{$timestamp}}",
+					"protocol": "https",
+					"host": [
+						"rsoodecho",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"put"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "{{$timestamp}}",
+							"equals": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "https://rsoodecho.herokuapp.com/get?q={{$timestamp}}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "https://rsoodecho.herokuapp.com/get?q={{$timestamp}}",
+					"protocol": "https",
+					"host": [
+						"rsoodecho",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"get"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "{{$timestamp}}",
+							"equals": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

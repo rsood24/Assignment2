@@ -2,7 +2,7 @@ var express = require('express');
 var http = require('http');
 var bodyParser = require('body-parser');
 var passport = require('passport');
-var authController = require('./auth');
+var authJwtController = require('./auth');
 db = require('./db')(); //global hack33.18
 
 var app = express();
@@ -13,18 +13,6 @@ app.use(passport.initialize());
 
 var router = express.Router();
 
-router.route('/post').post(function (req, res) {
-            console.log(req.body);
-            console.log("in post request");
-            res = res.status(200);
-            if (req.get('Content-Type')) {
-                console.log("Content-Type: " + req.get('Content-Type'));
-                res = res.type(req.get('Content-Type'));
-            }
-            res.json({Headers: req.query, Body: req.body});
-        }
-    );
-
 router.put('/', function (req, res) {
   console.log(req.body);
   res = res.status(200);
@@ -32,8 +20,61 @@ router.put('/', function (req, res) {
       console.log("Content-Type: " + req.get('Content-Type'));
       res = res.type(req.get('Content-Type'));
   }
+  else
+      res.send("no content sent");
   res.send(req.body);
 });
+
+router.route('/post')
+    .post(function (req, res) {
+            var header = req.headers;
+            var body = req.body;
+
+
+            console.log(req.body);
+            res = res.status(200);
+            if (req.get('Content-Type')) {
+                console.log("Content-Type: " + req.get('Content-Type'));
+                res = res.type(req.get('Content-Type'));
+            }
+//            res.send(req.body);
+            res.json({Headers: header, Body: body, KEY: process.env.UNIQUE_KEY});
+        }
+    );
+
+router.route('/put')
+    .put(function (req, res) {
+            var header = req.headers;
+            var body = req.body;
+
+
+            console.log(req.body);
+            res = res.status(200);
+            if (req.get('Content-Type')) {
+                console.log("Content-Type: " + req.get('Content-Type'));
+                res = res.type(req.get('Content-Type'));
+            }
+//            res.send(req.body);
+            res.json({Headers: header, Body: body, KEY: process.env.UNIQUE_KEY});
+        }
+    );
+
+router.route('/get')
+    .get(function (req, res) {
+            var header = req.headers;
+            var body = req.body;
+
+
+            console.log(req.body);
+            res = res.status(200);
+            if (req.get('Content-Type')) {
+                console.log("Content-Type: " + req.get('Content-Type'));
+                res = res.type(req.get('Content-Type'));
+            }
+//            res.send(req.body);
+            res.json({Headers: header, Body: body, KEY: process.env.UNIQUE_KEY});
+        }
+    );
 
 router.get('/', function(req, res) {
   console.log(req.body);
@@ -46,7 +87,7 @@ router.get('/', function(req, res) {
   else {
     res.send("no content sent");
   }
-})
+});
 
 router.post('/signup', function(req, res) {
     if (!req.body.username || !req.body.password) {
